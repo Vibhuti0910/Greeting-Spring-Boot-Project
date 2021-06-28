@@ -10,18 +10,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class SubscriptionClientFactory {
 
-    @Value("${TOPIC_NAME}")
+    @Value("${topic.name}")
     String topicName;
 
-    @Value("${SUBSCRIPTION_NAME}")
+    @Value("${subscription.name}")
     String subscriptionName;
 
-    @Value("${CONNECTION_STRING}")
+    @Value("${connection.string}")
     String connectionString;
 
     public SubscriptionClient getSubscriptionClient() throws ServiceBusException, InterruptedException {
         String entityPath = String.format("%s/subscriptions/%s", topicName, subscriptionName);
-
         ConnectionStringBuilder stringBuilder = new ConnectionStringBuilder(connectionString, entityPath);
         return new SubscriptionClient(stringBuilder, ReceiveMode.PEEKLOCK);
     }
