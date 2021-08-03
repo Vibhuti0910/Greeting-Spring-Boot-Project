@@ -7,6 +7,7 @@ This is a basic project to support a `GET` REST API call and demonstrate how to 
 
 ## How to Run
 1) Run with docker
+
     1.1 Supply environment variables needed in Dockerfile. You can create a file with extension as .env and add the variables there.
                 
         Sample env file content:
